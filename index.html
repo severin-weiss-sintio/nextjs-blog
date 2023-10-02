@@ -3,26 +3,44 @@
     <div id="app"></div>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <!-- Babel Script -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/jsx">
       const app = document.getElementById('app');
 
-        function Header() {
-            return (<h1>Develop. Preview. Ship </h1>)
+        function Header({title}) {
+            console.log(title);
+            return <h1>{title}</h1>;
         }
-
+        
         function HomePage() {
-            return (
-              <div>
-                {/* Nesting the Header component */}
-                <Header />
-              </div>
-            );
+            const employeeNames = ["E1", "E2", "E3"];
+
+            
+            const [likes, setLikes] = React.useState(0);
+
+            function handleClick(){
+                setLikes(likes + 1);
           }
 
-      ReactDOM.render(<Header />, app);
+            return (
+              <div>
+                <Header title="Sintio 💙" />
+                <Header title="Energizing Assets" />
+                <ul>
+                    {employeeNames.map((name) => (
+                        <li key={name}>{name}</li>
+                    ))}
+                </ul>
+                <button onClick={handleClick}>Like ({likes})</button>
+              </div>
+            );
+            
+          }
+
+          
+
+      ReactDOM.render(<HomePage />, app);
     </script>
   </body>
 </html>
