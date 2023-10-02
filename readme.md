@@ -1,1 +1,1 @@
-# Hello
+# Follwing the tutorial https://nextjs.org/learn/foundations/from-javascript-to-react/displaying-data-with-prop to get started in React.
